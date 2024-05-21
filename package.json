@@ -1,0 +1,38 @@
+{
+  "name": "jupiter",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "dev:terra": "cd apps/terra && bun dev",
+    "dev:pluto": "cd apps/pluto && bun dev",
+    "dev": "concurrently -c auto --names terra,pluto \"bun dev:terra\" \"bun dev:pluto\"",
+    "start:terra": "cd apps/terra && bun start",
+    "start:pluto": "cd apps/pluto && bun start",
+    "start": "concurrently -c auto --names terra,pluto \"bun start:terra\" \"bun start:pluto\"",
+    "build:pluto": "cd apps/pluto && bun run build",
+    "build:terra": "cd apps/terra && bun run build",
+    "build": "bun run build:pluto && bun run build:terra",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio"
+  },
+  "devDependencies": {
+    "@libsql/client": "^0.6.0",
+    "@types/bun": "latest",
+    "@types/uuid": "^9.0.8",
+    "drizzle-kit": "^0.21.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@lucia-auth/adapter-drizzle": "^1.0.7",
+    "concurrently": "^8.2.2",
+    "drizzle-orm": "^0.30.10",
+    "lucia": "^3.2.0",
+    "ora": "^8.0.1",
+    "sqlite": "^5.1.1",
+    "uuid": "^9.0.1",
+    "zod": "^3.23.8"
+  }
+}
