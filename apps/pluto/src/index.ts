@@ -1,5 +1,4 @@
 import { Hono } from "hono";
-import { db } from "@/src/db/index";
 
 const app = new Hono();
 
